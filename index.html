@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320, initial-scale=1.0">
+  <title>Modern Business Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="nav-overlay"></div>
+  <header class="header">
+    <div class="header__container">
+      <div class="logo">BUSINESS</div>
+      <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <a href="#" class="nav__link">OFFICES</a>
+        <a href="#" class="nav__link">SERVICES</a>
+        <a href="#" class="nav__link">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero__left">
+        <div class="hero__content">
+          <h1>Premium Business<br>Center in the Heart of City</h1>
+          <p>Your Success Starts Here</p>
+          <ul class="hero__list">
+            <li><span class="check-icon"></span>Starting from <span class="prata-num">$10 000</span> per year</li>
+            <li><span class="check-icon"></span>Up to <span class="prata-num">30%</span> discount for startups</li>
+            <li><span class="check-icon"></span>Save <span class="prata-num">17%</span> on business services</li>
+          </ul>
+          <button class="btn">BOOK A TOUR</button>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img src="images/hero.jpg" alt="Modern business building">
+      </div>
+    </section>
+    <div style="width:100%;height:48px;background:#282829;"></div>
+    <div class="features-divider">
+      <div class="features-divider__image features-divider__image--left">
+        <img src="images/feature1.jpg" alt="Modern office space">
+      </div>
+      <div class="features-divider__center">
+        <ul class="features-divider__list">
+          <li><img src="icons/flower.png" class="features-divider__icon" alt="icon">Premium office spaces with modern design and natural light</li>
+          <li><img src="icons/flower.png" class="features-divider__icon" alt="icon">24/7 security and access control for your peace of mind</li>
+          <li><img src="icons/flower.png" class="features-divider__icon" alt="icon">High-speed internet and advanced IT infrastructure included in every office</li>
+          <li><img src="icons/flower.png" class="features-divider__icon" alt="icon">Meeting rooms and conference facilities available for all tenants</li>
+        </ul>
+        <button class="btn">VIEW OFFICES</button>
+      </div>
+      <div class="features-divider__image features-divider__image--right">
+        <img src="images/feature2.jpg" alt="Business meeting room">
+      </div>
+    </div>
+    <div class="third-block">
+      <img src="images/contact-person.png" alt="Business consultant" class="third-block__img-person">
+      <div class="third-block__bg-flex">
+        <form class="third-block__form third-block__form--overlay">
+          <h2 class="third-block__title">Schedule Your<br>Personal Tour</h2>
+          <input type="text" name="name" placeholder="Your Name" required class="third-block__input">
+          <input type="email" name="email" placeholder="Your Email" required class="third-block__input">
+          <label class="third-block__checkbox-label">
+            <input type="checkbox" name="privacy" required>
+            <span>I agree to the Privacy Policy</span>
+          </label>
+          <button type="submit" class="third-block__submit">REQUEST TOUR</button>
+        </form>
+        <div class="third-block__img-wrap">
+          <img src="images/form.jpg" alt="Office interior" class="third-block__img">
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-nav-bar">
+        <nav class="footer__nav">
+          <a href="#">ABOUT US</a>
+          <a href="#">SERVICES</a>
+          <a href="#">CONTACT</a>
+        </nav>
+      </div>
+      <div class="footer-main">
+        <div class="footer-main__left">
+          <div class="footer-logo">BUSINESS</div>
+        </div>
+        <div class="footer-main__center">
+          <div class="footer-socials">
+            <a href="#"><img src="icons/instagram.svg" alt="Instagram" class="icon-social"></a>
+            <a href="#"><img src="icons/tiktok.svg" alt="TikTok" class="icon-social"></a>
+            <a href="#"><img src="icons/linkedin.svg" alt="LinkedIn" class="icon-social"></a>
+            <a href="#"><img src="icons/facebook.svg" alt="Facebook" class="icon-social"></a>
+            <a href="#"><img src="icons/telegram.svg" alt="Telegram" class="icon-social"></a>
+            <a href="#"><img src="icons/youtube.svg" alt="YouTube" class="icon-social"></a>
+          </div>
+        </div>
+        <div class="footer-main__right">
+          <button class="footer-order-btn"><em>BOOK NOW</em></button>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div class="footer-copyright">©2025 Copyright.</div>
+        <div class="footer-privacy"><a href="#">Privacy Policy</a></div>
+        <a href="#" class="footer-terms">Terms of Use</a>
+      </div>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+
+    // Mobile Menu
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    const overlay = document.querySelector('.nav-overlay');
+    const body = document.body;
+    
+    function toggleMenu() {
+      mobileMenuBtn.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+      body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    overlay.addEventListener('click', function(e) {
+      if (nav.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (nav.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Close mobile menu on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && nav.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+
+    // Prevent clicks inside nav from closing the menu
+    nav.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  </script>
+</body>
+</html> 
